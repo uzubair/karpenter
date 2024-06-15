@@ -1,4 +1,7 @@
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+# Karpenter
+Karpenter is an open-source project that provides a Kubernetes cluster autoscaler for burstable workloads. It aims to optimize cost and resource utilization by automatically scaling in and out based on workload demand. Karpenter is designed to be lightweight and efficient, leveraging Kubernetes custom resources and controllers to manage scaling activities. Overall, Karpenter helps Kubernetes users to better manage their workloads by dynamically adjusting resources to meet demand, thus improving efficiency and cost-effectiveness.
+
 ## Requirements
 
 | Name | Version |
