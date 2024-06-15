@@ -1,0 +1,27 @@
+podLabels:
+  tags.datadog.com/service: karpenter
+
+podAnnotations:
+  tags.datadog.com/service: karpenter
+  ad.datadog.com/controller.checks: |
+    {
+      "openmetrics": {
+        "init_config": {},
+        "instances": [{
+          "max_returned_metrics": 100000
+          "openmetrics_endpoint": "http://%%host%%:8000/metrics",
+          "namespace": "karpenter",
+          "metrics": [
+            "karpenter_disruption_.*",
+            "karpenter_nodeclaims_.*",
+            "karpenter_nodes_terminated"
+          ]
+        }]
+      }
+    }
+
+%{ if num_replicas >= 0 }
+replicas: ${num_replicas}
+%{ endif }
+
+logLevel: ${log_level}
